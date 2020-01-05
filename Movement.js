@@ -19,8 +19,8 @@ function right() {
 } // end function right
 
 function up() {
-  for (y = 2; y >= 0; y--) {
-    cellsNonEmpty = selectEmptyCellinLineUp(y);
+  for (y = 1; y <= 3; y++) {
+    cellsNonEmpty = selectEmptyCellinLine(y);
     let length = Object(cellsNonEmpty).length;
     if (length != 0) {
       moveAllCellsUp(cellsNonEmpty);
@@ -29,8 +29,9 @@ function up() {
 } // end function down
 
 function down() {
-  for (y = 3; y > 0; y--) {
-    cellsNonEmpty = selectEmptyCellinLineDown(y);
+  for (y = 2; y >= 0; y--) {
+    cellsNonEmpty = selectEmptyCellinLine(y);
+    console.log(cellsNonEmpty);
     let length = Object(cellsNonEmpty).length;
     if (length != 0) {
       moveAllCellsDown(cellsNonEmpty);
@@ -125,9 +126,6 @@ function testAndReplaceUp(originCell, ActiveCell) {
 
   let upCellVal = parseInt($(upCell).text());
   let activeCellVal;
-  console.log('upcell', upCell);
-  console.log('origin', originCell);
-  console.log('active', ActiveCell);
 
   // Si aucune case au dessus
   if (upCellText == '') {
@@ -173,6 +171,7 @@ function testAndReplaceDown(originCell, ActiveCell) {
   else if (downCellVal == originCellVal) {
     $(downCell).text(downCellVal * 2);
     $(originCell).text('');
+
     addScore = downCellVal * 2;
     changeScore(addScore);
   } else {

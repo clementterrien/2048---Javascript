@@ -51,17 +51,9 @@ function leftCellSelector(Cell) {
   return leftCell;
 }
 
-function selectEmptyCellinLineDown(ord) {
+function selectEmptyCellinLine(ord) {
   let i = ord;
-  let cellsNonEmpty = $(`.column > .cells:not(#3row)`).filter((index, elt) => {
-    return elt.textContent !== '';
-  });
-  return cellsNonEmpty;
-}
-
-function selectEmptyCellinLineUp(ord) {
-  let i = ord;
-  let cellsNonEmpty = $(`.column > .cells:not(#0row)`).filter((index, elt) => {
+  let cellsNonEmpty = $(`#${i}row.cells`).filter((index, elt) => {
     return elt.textContent !== '';
   });
   return cellsNonEmpty;
@@ -73,11 +65,6 @@ function selectEmptyCellinColumn(abscisse) {
     return elt.textContent !== '';
   });
   return cellsNonEmpty;
-}
-
-function selectColumn(grid, abs) {
-  let col = $(`#${abs}col`);
-  return col;
 }
 
 function firstEmptyCellUp(cell) {
@@ -127,6 +114,7 @@ function firstEmptyCellLeft(cell) {
 
 function firstEmptyCellRight(cell) {
   let activeCell = cell;
+
   rightCell = rightCellSelector(activeCell);
   var textRightCell = rightCell.text();
   let absRightCell = absCell(rightCell);
@@ -139,10 +127,3 @@ function firstEmptyCellRight(cell) {
   } // end while
   return activeCell;
 } // end of firstEmptyCellDown function
-
-function selecteachEmptyCell() {
-  for (y = 1; y < 4; y++) {
-    cellsNonEmpty = selectEmptyCellinColumn(y);
-    leftCellSelector(cellsNonEmpty);
-  }
-}
