@@ -20,6 +20,13 @@ function allCellsSelector() {
   return allCells;
 }
 
+function allEmptyCellsSelector() {
+  let emptyCells = $(`.cells`).filter((index, elt) => {
+    return elt.textContent === '';
+  });
+  return emptyCells;
+}
+
 function upCellSelector(Cell) {
   let originCell = Cell;
   let ordOriginCell = ordCell(originCell);

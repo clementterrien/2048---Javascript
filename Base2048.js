@@ -1,6 +1,7 @@
 window.onload = function() {
   generateMap(4);
   generateScore(0);
+  displayBestScore();
   generateCell();
 
   var score = 0;
@@ -10,10 +11,14 @@ window.onload = function() {
       // si fleche de gauche
       let grid1 = copyGridState();
       left();
+      testVictory();
       let grid2 = copyGridState();
 
       if (grid1 != grid2) {
+        displayBestScore();
         generateCell();
+      } else {
+        testDefeat();
       }
     }
 
@@ -21,9 +26,11 @@ window.onload = function() {
       // si fleche du haut
       let grid1 = copyGridState();
       up();
+      testVictory();
       let grid2 = copyGridState();
 
       if (grid1 != grid2) {
+        displayBestScore();
         generateCell();
       }
     }
@@ -32,10 +39,14 @@ window.onload = function() {
       // si fleche de droite
       let grid1 = copyGridState();
       right();
+      testVictory();
       let grid2 = copyGridState();
 
       if (grid1 != grid2) {
+        displayBestScore();
         generateCell();
+      } else {
+        testDefeat();
       }
     }
 
@@ -43,11 +54,15 @@ window.onload = function() {
       // si fleche du bas
       let grid1 = copyGridState();
       down();
+      testVictory();
       let grid2 = copyGridState();
 
       if (grid1 != grid2) {
+        displayBestScore();
         generateCell();
-      } // end if grille différentes
+      } else {
+        testDefeat();
+      }
     } //end if touche du bas
   });
 

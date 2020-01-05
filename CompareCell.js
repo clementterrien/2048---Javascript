@@ -1,23 +1,3 @@
-// renvoi vrai si deux cellules sont identiques ou faux si non
-function compareCells(cell1, cell2) {
-  valcell1 = valCell(cell1);
-  valcell2 = valCell(cell2);
-  return valcell1 != valcell2;
-}
-
-function compareColumns(col1, col2) {
-  let length = Object(cellsNonEmpty).length;
-
-  for (i = 0; i < length; i++) {
-    let cell1 = col1[i];
-    let cell2 = col2[i];
-    let compareCell = compareCells(cell1, cell2);
-    if (compareCell == false) {
-      return compareCell;
-    }
-  }
-}
-
 function copyGridState() {
   let cells = $(`.column > .cells`);
   let mapString = [];
@@ -25,4 +5,22 @@ function copyGridState() {
   return mapString.join(',');
 }
 
-function compareGrid(grid1, grid2) {}
+function canCellMove(cell) {
+  let canCellMove = false;
+  let originCellVal = valCell(cell);
+  let upCellVal = valCell(upCellSelector(cell));
+  let downCellVal = valCell(downCellSelector(cell));
+  let leftCellVal = valCell(leftCellSelector(cell));
+  let rightCellVal = valCell(rightCellSelector(cell));
+
+  if (
+    originCellVal === upCellVal ||
+    originCellVal === downCellVal ||
+    originCellVal === leftCellVal ||
+    originCellVal === rightCellVal
+  ) {
+    canCellMove = true;
+  }
+  console.log('cancellmovz', canCellMove);
+  return canCellMove;
+}

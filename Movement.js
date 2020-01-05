@@ -31,7 +31,6 @@ function up() {
 function down() {
   for (y = 2; y >= 0; y--) {
     cellsNonEmpty = selectEmptyCellinLine(y);
-    console.log(cellsNonEmpty);
     let length = Object(cellsNonEmpty).length;
     if (length != 0) {
       moveAllCellsDown(cellsNonEmpty);
