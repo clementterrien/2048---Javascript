@@ -15,6 +15,11 @@ function valCell(cell) {
   return parseInt($(cell).text());
 }
 
+function allCellsSelector() {
+  allCells = $(`.cells`);
+  return allCells;
+}
+
 function upCellSelector(Cell) {
   let originCell = Cell;
   let ordOriginCell = ordCell(originCell);

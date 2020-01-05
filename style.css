@@ -1,5 +1,37 @@
 .container {
   display: flex;
+  flex-direction: column;
+  width: 81vmin;
+  height: 100vmin;
+}
+
+.gametitle {
+  width: 25%;
+  padding-left: 4vmin;
+}
+
+.infos {
+  display: flex;
+  height: 20vmin;
+  background-color: darkgrey;
+  margin-bottom: 2vmin;
+  border-radius: 10px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.bestscore {
+  width: 25%;
+}
+
+.retry {
+  display: flex;
+  width: 25%;
+  align-items: center;
 }
 
 .grille {
@@ -7,8 +39,7 @@
   width: 80vmin;
   height: 80vmin;
   background: lightblue;
-  border: solid;
-  border-width: 0.5px;
+  border-radius: 10px;
 }
 
 .column {
@@ -28,6 +59,5 @@
   border-width: 0.5px;
   justify-content: center;
   align-items: center;
-  margin: 0;
   font-size: 14vmin;
 }

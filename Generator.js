@@ -1,11 +1,11 @@
 function generateScore(score) {
-  $('.container').append(`<h2>Score</h2><div class='score'>${score}</div>`);
+  $('.scoreval').text(`${score}`);
 }
 
 function changeScore(addScore) {
-  let actualScore = parseInt($('.score').text());
+  let actualScore = parseInt($('.scoreval').text());
   let finalScore = actualScore + addScore;
-  $('.score').text(finalScore);
+  $('.scoreval').text(finalScore);
 }
 function generateMap(grilleSize) {
   for (let index = 0; index < grilleSize; index++) {
@@ -30,10 +30,16 @@ function generateCell() {
 
 function generate2or4() {
   let value = 2;
-  var randomNumber = Math.floor(Math.random() * Math.floor(2));
+  var randomNumber = Math.floor(Math.random() * Math.floor(10));
 
   if (randomNumber === 1) {
     value = 4;
   }
   return value;
+}
+
+function retry() {
+  let allCells = allCellsSelector();
+  allCells.text('');
+  generateCell();
 }
